@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ghost Snake</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="cabinet">
+    <header class="title">
+      <h1>GHOST <span>SNAKE</span></h1>
+    </header>
+
+    <div class="layout">
+      <section class="playfield" aria-label="Game board">
+        <canvas id="game" aria-label="Ghost Snake game board" role="img"></canvas>
+
+        <div id="overlay" class="overlay" role="dialog" aria-live="polite">
+          <h2 id="overlay-title">GHOST SNAKE</h2>
+          <p id="overlay-text" class="overlay-text"></p>
+
+          <div id="difficulty-group" class="difficulty" role="radiogroup" aria-label="Difficulty">
+            <button type="button" class="diff-btn" role="radio" data-difficulty="easy">Easy</button>
+            <button type="button" class="diff-btn" role="radio" data-difficulty="medium">Medium</button>
+            <button type="button" class="diff-btn" role="radio" data-difficulty="hard">Hard</button>
+          </div>
+
+          <button type="button" id="primary-btn" class="btn btn-primary">START</button>
+          <button type="button" id="overlay-restart-btn" class="btn" hidden>RESTART</button>
+        </div>
+      </section>
+
+      <aside class="side">
+        <div class="hud">
+          <div class="stat"><span class="label">SCORE</span><span id="score" class="value">0</span></div>
+          <div class="stat"><span class="label">BEST <small id="best-label">(Medium)</small></span><span id="best" class="value">0</span></div>
+        </div>
+
+        <div id="power-meter" class="power-meter" aria-live="off">
+          <div class="power-head"><span>POWER</span><span id="power-text">READY</span></div>
+          <div class="power-track"><div id="power-fill" class="power-fill"></div></div>
+        </div>
+
+        <div class="buttons">
+          <button type="button" id="pause-btn" class="btn">PAUSE</button>
+          <button type="button" id="restart-btn" class="btn">RESTART</button>
+          <button type="button" id="mute-btn" class="btn" aria-pressed="false">SOUND: ON</button>
+        </div>
+
+        <div class="help">
+          <h3>Controls</h3>
+          <ul>
+            <li><kbd>&uarr;</kbd><kbd>&darr;</kbd><kbd>&larr;</kbd><kbd>&rarr;</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> steer</li>
+            <li><kbd>Space</kbd> / <kbd>Enter</kbd> start or resume</li>
+            <li><kbd>P</kbd> pause &nbsp; <kbd>R</kbd> restart &nbsp; <kbd>M</kbd> mute</li>
+          </ul>
+          <h3>How to play</h3>
+          <ul class="rules">
+            <li><i class="dot dot-food"></i> Eat pellets to grow and score <b>10</b>.</li>
+            <li><i class="dot dot-power"></i> The glowing <b>power pellet</b> turns every ghost <b class="scared">blue</b> for <b>5 seconds</b>.</li>
+            <li><b class="scared">Blue ghosts</b> are safe to eat: <b>200, 400, 800, 1600</b> in a row.</li>
+            <li><b class="danger">Coloured ghosts</b> are deadly. So are walls and your own tail.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/collision.js"></script>
+  <script src="js/spawner.js"></script>
+  <script src="js/ghosts.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
